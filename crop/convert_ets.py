@@ -3,7 +3,8 @@ from json import load
 from sys import argv
 import os
 
-cfg_dir = '/share/ymz/valisProject/data/mIF_175_converted_cropped/configs'
+# cfg_dir = '/share/ymz/valisProject/data/mIF_175_converted_cropped/configs'
+cfg_dir = '/home/yuanmingze/data/mIF_175_converted_cropped/configs'
 # output_dir = '/share/ymz/valisProject/data/mIF_20_converted_cropped/images_tmp'
 output_dir = '/home/yuanmingze/data/mIF_175_converted_cropped/images'
 patient_name = argv[1]

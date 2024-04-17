@@ -9,8 +9,8 @@ from sys import argv
 src_dir = '/home/yuanmingze/data/mIF_175_converted_cropped/images'
 dst_dir = '/home/yuanmingze/results/results_mIF_175_after_crop'
 # patient_name_lst = [argv[1]]
-ls_crop = sorted(os.listdir('/public/share/ymz/valisProject/data/mIF_175_converted_cropped/images'), key=lambda x: int(x[1:]))
-patient_name_lst = ls_crop
+# ls_crop = sorted(os.listdir('/public/share/ymz/valisProject/data/mIF_175_converted_cropped/images'), key=lambda x: int(x[1:]))
+patient_name_lst = ['P103', 'P189']
 
 def register_one_patient(patient_name: str):
     slide_src_dir = os.path.join(src_dir, patient_name)
@@ -28,13 +28,13 @@ def register_one_patient(patient_name: str):
     registrar.register_micro(max_non_rigid_registration_dim_px=3000, align_to_reference=True)
 
     # Save all registered slides as ome.tiff
-    registrar.warp_and_save_slides(registered_slide_dst_dir, crop="overlap", level=0)
+    registrar.warp_and_save_slides(registered_slide_dst_dir, crop="overlap", level=2)
 
 if __name__ == '__main__':
     for patient_name in sorted(patient_name_lst, key=lambda x: int(x[1:])):
-        if len(glob(os.path.join(dst_dir, f"{patient_name}_*", 'registered_slides', '*'))) >= 5:
-            print(f'---- Already finished registering {patient_name} ----')
-            continue
+        # if len(glob(os.path.join(dst_dir, f"{patient_name}_*", 'registered_slides', '*'))) >= 5:
+        #     print(f'---- Already finished registering {patient_name} ----')
+        #     continue
         print(f'---- Start registering {patient_name} ----')
         start_time = time()
         register_one_patient(patient_name)

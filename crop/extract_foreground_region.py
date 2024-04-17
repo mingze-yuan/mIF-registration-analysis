@@ -28,8 +28,10 @@ def judge_duplicated(patient_name: str, data_dir: str, runs_dir: str):
 
 if __name__ == '__main__':
     # data_dir = '/share/ymz/valisProject/data/mIF_175_organized'
-    data_dir = '/home/yuanmingze/data/mIF_20_organized'
-    runs_dir = '/share/ymz/valisProject/results_modified_20'
+    data_dir = '/home/yuanmingze/data/mIF_175_organized_debug'
+    # data_dir = '/home/yuanmingze/data/mIF_20_organized'
+    # runs_dir = '/share/ymz/valisProject/results_modified_debug'
+    runs_dir = '/home/yuanmingze/results/results_mIF_175_debug'
     # runs_dir = '/share/ymz/valisProject/results_modified_reverse'
     patient_name_lst = [argv[1]]
     # patient_name_lst = [x.split('_')[0] for x in os.listdir(runs_dir)]
@@ -92,7 +94,7 @@ if __name__ == '__main__':
             bbox_ls_pat.append(bbox_ls)
 
         dict_info = {'source': slide_src_f_lst, 'processed': process_img_f_lst, 'bbox': bbox_ls_pat}
-        with open(os.path.join('/share/ymz/valisProject/data/mIF_20_converted_cropped/configs', f"{patient_name}.json"), 'w') as f:
+        with open(os.path.join('/home/yuanmingze/data/mIF_175_converted_cropped/configs', f"{patient_name}.json"), 'w') as f:
             json.dump(dict_info, f, indent=4)
         # df = DataFrame({'process_image': lst_all_img_f, 'source_image': lst_all_src_f, 'bounding_box': lst_bbox_all})
         # df.to_excel('/home/yuanmingze/tmp/bbox_mIF_175.xlsx', index=False)

@@ -12,8 +12,12 @@ src_dir = '/home/yuanmingze/data/mIF_20_organized'
 # patient_name_lst = sorted([x for x in ls_all if x not in ls_crop], key=lambda x: int(x[1:]))
 # print(patient_name_lst)
 dst_dir = '/home/yuanmingze/results/results_mIF_20'
-patient_name_lst = os.listdir(src_dir)
-patient_name_lst = [x for x in patient_name_lst if x != '01035']
+
+# src_dir = '/home/yuanmingze/data/mIF_175_organized_debug'
+# dst_dir = '/home/yuanmingze/results/results_mIF_175_debug'
+# patient_name_lst = os.listdir(src_dir)
+patient_name_lst = ['01019']
+# patient_name_lst = [x for x in patient_name_lst if x != '01035']
 
 def register_one_patient(patient_name: str):
     slide_src_dir = os.path.join(src_dir, patient_name)
@@ -28,7 +32,7 @@ def register_one_patient(patient_name: str):
     rigid_registrar, non_rigid_registrar, error_df = registrar.register()
     
     # Perform micro-registration on higher resolution images, aligning *directly to* the reference image
-    registrar.register_micro(max_non_rigid_registration_dim_px=3000, align_to_reference=True)
+    # registrar.register_micro(max_non_rigid_registration_dim_px=3000, align_to_reference=True)
 
     # Save all registered slides as ome.tiff
     registrar.warp_and_save_slides(registered_slide_dst_dir, crop="overlap", level=2)

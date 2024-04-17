@@ -5,7 +5,8 @@ from matplotlib import patches
 import matplotlib.pyplot as plt
 import cv2
 
-cfg_dir = '/share/ymz/valisProject/data/mIF_20_converted_cropped/configs'
+# cfg_dir = '/share/ymz/valisProject/data/mIF_20_converted_cropped/configs'
+cfg_dir = '/home/yuanmingze/data/mIF_175_converted_cropped/configs'
 patient_name = argv[1]
 
 cfg = load(open(os.path.join(cfg_dir, patient_name + '.json'), 'r'))

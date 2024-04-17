@@ -8,8 +8,8 @@ from glob import glob
 src_dir = '/share/ymz/valisProject/data/mIF_175_organized'
 patient_name_lst = sorted(os.listdir(src_dir))
 # dst_dir = '/home/yuanmingze/results/mIF_175'
-ls_skip = ['P117', 'P55', 'P42', 'P11', 'P8', 'P183', 'P182', 'P5', 'P7']
-patient_name_lst = [x for x in patient_name_lst if x not in ls_skip]
+# ls_skip = ['5']
+patient_name_lst = ['P5']
 dst_dir = '/share/ymz/valisProject/results_modified'
 # results_dst_dir = os.path.join("/home/yuanmingze/results", os.path.basename(slide_src_dir) + f'_{formatted_date}')
 
